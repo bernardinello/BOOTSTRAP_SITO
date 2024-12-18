@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style-socket.css">
+    <title>Codice Client - Cos'è una Socket?</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Socket Learning</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdownSocketMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cos'è una Socket?
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownSocketMenu">
+                  <li><a class="dropdown-item" href="socket.html">Introduzione</a></li>
+                  <li><a class="dropdown-item" href="client-code.html">Codice Client</a></li>
+                  <li><a class="dropdown-item" href="server-code.html">Codice Server</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="osi.html">Modello OSI</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tcpudp.html">TCP vs UDP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="glossario.html">Glossario</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-title-background">
+            <h1>Codice Client</h1>
+            <p>Il codice per implementare un client socket in C.</p>
+        </div>
+    </div>
+
+    <!-- Contenuto -->
+    <div class="container mt-5 shadow-box">
+        <h2 class="text-center">Esempio di Codice Client</h2>
+        <p>Qui puoi vedere un esempio di codice client in C per creare una connessione socket con un server.</p>
+        
+        <pre><code class="language-python">
+            //CLIENT
+#include <stdio.h>       //std in-out
+#include <stdlib.h>      //per utilizzo di certe funzioni:htonl,rand,....
+#include <sys/socket.h>  //funz. accept+bind+listen
+#include <sys/types.h>   //funz. accept
+#include <netinet/in.h>  //definiscono la struttura degli indirizzi 
+#include <string.h>      //funz. stringhe
+#include <errno.h>       //gestioni errori connessione
+#include <ctype.h>       //bind
+#include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
+
+#define DIM 50
+#define SERVERPORT 1313
+
+int main(int argc,char** argv)
+{   //creazione di un elemento di tipo sockaddr vedi pagina 162
+    struct sockaddr_in servizio;
+     //inizializzazione dell'elemento di tipo sockaddr
+    servizio.sin_family=AF_INET;
+    servizio.sin_addr.s_addr=htonl(INADDR_ANY); //  La funzione htonl accetta un numero a 32 bit in ordine di byte host e restituisce un numero a 32 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+    servizio.sin_port=htons(SERVERPORT);       //La funzione htons accetta un numero a 16 bit nell'ordine dei byte host e restituisce un numero a 16 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+    char str1[DIM];     //Stringa da inviare
+    int socketfd;// identificatore della socket
+    //creazione e definizione del Socket di tipo stream tcp pg 163
+    socketfd=socket(AF_INET,SOCK_STREAM,0);
+    //connessione al server pag.173
+    connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));    
+    printf("Inserisci la stringa\n");
+    scanf("%s",str1);
+    write(socketfd,str1,sizeof(str1));
+    close(socketfd);
+    return 0;
+}
+            
+            
+            
+            
+        </code></pre>
+
+        <p>Questo codice crea un client che si connette al server sulla porta 1313, invia un messaggio e riceve la risposta.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>Realizzato da: Bernardinello Tommaso - Classe 5E</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb9YHxS5kz5x8ZAXE2kmu6c9a1h8C2VQpeO2O0A2yFbJXzV1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0g2lQzVd6OrpI+UAsjDKcbf0FcM2O5S/65z49c1bmS+oWjSe" crossorigin="anonymous"></script>
+</body>
+</html>

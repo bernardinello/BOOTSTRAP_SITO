@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style-osi.css"> <!-- Collega il file CSS esterno -->
+    <title>Modello OSI</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Socket Learning</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="socket.html">Cos'è una Socket?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="osi.html">Modello OSI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tcpudp.html">TCP vs UDP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="glossario.html">Glossario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  
+
+    <!-- Sezione Hero -->
+    <div class="hero-section">
+        <div class="hero-title-background">
+            <h1>Modello OSI</h1>
+            <p>Scopri i 7 strati del modello OSI e il loro ruolo nelle comunicazioni di rete.</p>
+        </div>
+    </div>
+
+    <!-- Contenuto della pagina -->
+    <div class="container mt-5 shadow-box">
+        <h2 class="text-center">I 7 Strati del Modello OSI</h2>
+        <p class="lead text-center mb-5">
+            Il modello OSI (Open Systems Interconnection) è un framework che descrive come i dati viaggiano da un dispositivo all'altro attraverso la rete.
+        </p>
+        
+        <!-- Immagine del Modello OSI -->
+        <div class="text-center mb-4">
+            <img src="https://www.comefunziona.net/img/fig1-1.jpg" alt="Modello OSI" class="img-fluid" style="max-width: 80%; border-radius: 10px;">
+        </div>
+
+        <p>
+            Il modello OSI è diviso in sette strati, ognuno dei quali ha una funzione specifica nella comunicazione di rete. Di seguito sono descritti i 7 strati:
+        </p>
+
+        <ul class="list-group mb-5">
+            <li class="list-group-item list-group-item-primary">
+                <strong>Fisico:</strong> Gestisce la trasmissione di bit su un canale fisico, inclusi i cavi, le onde radio, e i segnali elettrici.
+            </li>
+            <li class="list-group-item list-group-item-secondary">
+                <strong>Data Link:</strong> Gestisce la trasmissione di frame tra nodi sulla stessa rete, fornendo anche la gestione degli errori.
+            </li>
+            <li class="list-group-item list-group-item-success">
+                <strong>Network:</strong> Gestisce l'indirizzamento e il routing dei pacchetti tra diverse reti.
+            </li>
+            <li class="list-group-item list-group-item-warning">
+                <strong>Trasporto:</strong> Garantisce una comunicazione end-to-end affidabile tra i dispositivi, attraverso segmenti.
+            </li>
+            <li class="list-group-item list-group-item-danger">
+                <strong>Sessone:</strong> Gestisce la creazione, la gestione e la terminazione delle sessioni di comunicazione.
+            </li>
+            <li class="list-group-item list-group-item-info">
+                <strong>Presentazione:</strong> Gestisce la sintassi dei dati, la cifratura e la compressione, per consentire ai dati di essere comprensibili per entrambi i dispositivi.
+            </li>
+            <li class="list-group-item list-group-item-light">
+                <strong>Applicazione:</strong> Gestisce l'interazione finale con l'utente o l'applicazione, come la navigazione web o l'invio di email.
+            </li>
+        </ul>
+
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>Realizzato da: Bernardinello Tommaso - Classe 5E</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb9YHxS5kz5x8ZAXE2kmu6c9a1h8C2xVQpeO2O0A2yFbJXzV1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0g2lQzVd6OrpI+UAsjDKcbf0FcM2O5S/65z49c1bmS+oWjSe" crossorigin="anonymous"></script>
+</body>
+</html>
+
